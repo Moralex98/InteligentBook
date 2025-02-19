@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DB392ADF2D5DB39000E4E78E /* BookReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB392ADE2D5DB39000E4E78E /* BookReaderView.swift */; };
+		DB3FAED72D5E7981001B4231 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3FAED62D5E7981001B4231 /* WebView.swift */; };
+		DB48A15E2D5D36170022BACA /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = DB48A15D2D5D36170022BACA /* SwiftyJSON */; };
+		DB48A1612D5D364A0022BACA /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = DB48A1602D5D364A0022BACA /* SDWebImageSwiftUI */; };
+		DB84D75F2D5CE8CA00A5FFA5 /* KindleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB84D75E2D5CE8CA00A5FFA5 /* KindleApp.swift */; };
+		DB84D7612D5CE8CA00A5FFA5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB84D7602D5CE8CA00A5FFA5 /* ContentView.swift */; };
+		DB84D7632D5CE8CC00A5FFA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB84D7622D5CE8CC00A5FFA5 /* Assets.xcassets */; };
+		DB84D7662D5CE8CC00A5FFA5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB84D7652D5CE8CC00A5FFA5 /* Preview Assets.xcassets */; };
+		DBBE53D32D5D6F8400B18A38 /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBE53D22D5D6F8400B18A38 /* BookDetailView.swift */; };
+		DBBE53D52D5D716800B18A38 /* GoogleBooksAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBE53D42D5D716800B18A38 /* GoogleBooksAPIModel.swift */; };
+		DBBE53D72D5D71A200B18A38 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBE53D62D5D71A200B18A38 /* BookModel.swift */; };
+		DBBE53D92D5D71F800B18A38 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBE53D82D5D71F800B18A38 /* BookViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DB392ADE2D5DB39000E4E78E /* BookReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookReaderView.swift; sourceTree = "<group>"; };
+		DB392AE02D5DBA7700E4E78E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DB3FAED62D5E7981001B4231 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		DB84D75B2D5CE8CA00A5FFA5 /* Kindle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kindle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB84D75E2D5CE8CA00A5FFA5 /* KindleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindleApp.swift; sourceTree = "<group>"; };
+		DB84D7602D5CE8CA00A5FFA5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DB84D7622D5CE8CC00A5FFA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DB84D7652D5CE8CC00A5FFA5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DBBE53D22D5D6F8400B18A38 /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
+		DBBE53D42D5D716800B18A38 /* GoogleBooksAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleBooksAPIModel.swift; sourceTree = "<group>"; };
+		DBBE53D62D5D71A200B18A38 /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
+		DBBE53D82D5D71F800B18A38 /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DB84D7582D5CE8CA00A5FFA5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB48A1612D5D364A0022BACA /* SDWebImageSwiftUI in Frameworks */,
+				DB48A15E2D5D36170022BACA /* SwiftyJSON in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DB4014FB2D5D2F8600AAEFCF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DBBE53D42D5D716800B18A38 /* GoogleBooksAPIModel.swift */,
+				DBBE53D62D5D71A200B18A38 /* BookModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DB4014FC2D5D2F9300AAEFCF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DBBE53D22D5D6F8400B18A38 /* BookDetailView.swift */,
+				DBBE53D82D5D71F800B18A38 /* BookViewModel.swift */,
+				DB392ADE2D5DB39000E4E78E /* BookReaderView.swift */,
+				DB3FAED62D5E7981001B4231 /* WebView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DB4014FD2D5D2FA100AAEFCF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DB4014FE2D5D2FAF00AAEFCF /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DB84D75E2D5CE8CA00A5FFA5 /* KindleApp.swift */,
+				DB84D7602D5CE8CA00A5FFA5 /* ContentView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		DB84D7522D5CE8CA00A5FFA5 = {
+			isa = PBXGroup;
+			children = (
+				DB84D75D2D5CE8CA00A5FFA5 /* Kindle */,
+				DB84D75C2D5CE8CA00A5FFA5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DB84D75C2D5CE8CA00A5FFA5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DB84D75B2D5CE8CA00A5FFA5 /* Kindle.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DB84D75D2D5CE8CA00A5FFA5 /* Kindle */ = {
+			isa = PBXGroup;
+			children = (
+				DB392AE02D5DBA7700E4E78E /* Info.plist */,
+				DB4014FE2D5D2FAF00AAEFCF /* Main */,
+				DB4014FD2D5D2FA100AAEFCF /* Controllers */,
+				DB4014FC2D5D2F9300AAEFCF /* Views */,
+				DB4014FB2D5D2F8600AAEFCF /* Models */,
+				DB84D7622D5CE8CC00A5FFA5 /* Assets.xcassets */,
+				DB84D7642D5CE8CC00A5FFA5 /* Preview Content */,
+			);
+			path = Kindle;
+			sourceTree = "<group>";
+		};
+		DB84D7642D5CE8CC00A5FFA5 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				DB84D7652D5CE8CC00A5FFA5 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DB84D75A2D5CE8CA00A5FFA5 /* Kindle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB84D7692D5CE8CC00A5FFA5 /* Build configuration list for PBXNativeTarget "Kindle" */;
+			buildPhases = (
+				DB84D7572D5CE8CA00A5FFA5 /* Sources */,
+				DB84D7582D5CE8CA00A5FFA5 /* Frameworks */,
+				DB84D7592D5CE8CA00A5FFA5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Kindle;
+			packageProductDependencies = (
+				DB48A15D2D5D36170022BACA /* SwiftyJSON */,
+				DB48A1602D5D364A0022BACA /* SDWebImageSwiftUI */,
+			);
+			productName = Kindle;
+			productReference = DB84D75B2D5CE8CA00A5FFA5 /* Kindle.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DB84D7532D5CE8CA00A5FFA5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					DB84D75A2D5CE8CA00A5FFA5 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = DB84D7562D5CE8CA00A5FFA5 /* Build configuration list for PBXProject "Kindle" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DB84D7522D5CE8CA00A5FFA5;
+			packageReferences = (
+				DB48A15C2D5D36170022BACA /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				DB48A15F2D5D364A0022BACA /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
+			productRefGroup = DB84D75C2D5CE8CA00A5FFA5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DB84D75A2D5CE8CA00A5FFA5 /* Kindle */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DB84D7592D5CE8CA00A5FFA5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB84D7662D5CE8CC00A5FFA5 /* Preview Assets.xcassets in Resources */,
+				DB84D7632D5CE8CC00A5FFA5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DB84D7572D5CE8CA00A5FFA5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB392ADF2D5DB39000E4E78E /* BookReaderView.swift in Sources */,
+				DBBE53D72D5D71A200B18A38 /* BookModel.swift in Sources */,
+				DB84D7612D5CE8CA00A5FFA5 /* ContentView.swift in Sources */,
+				DBBE53D52D5D716800B18A38 /* GoogleBooksAPIModel.swift in Sources */,
+				DBBE53D32D5D6F8400B18A38 /* BookDetailView.swift in Sources */,
+				DB84D75F2D5CE8CA00A5FFA5 /* KindleApp.swift in Sources */,
+				DBBE53D92D5D71F800B18A38 /* BookViewModel.swift in Sources */,
+				DB3FAED72D5E7981001B4231 /* WebView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		DB84D7672D5CE8CC00A5FFA5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DB84D7682D5CE8CC00A5FFA5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DB84D76A2D5CE8CC00A5FFA5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Kindle/Preview Content\"";
+				DEVELOPMENT_TEAM = JQ8TWJP7LR;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Kindle/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Proyectos.Kindle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DB84D76B2D5CE8CC00A5FFA5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Kindle/Preview Content\"";
+				DEVELOPMENT_TEAM = JQ8TWJP7LR;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Kindle/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Proyectos.Kindle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DB84D7562D5CE8CA00A5FFA5 /* Build configuration list for PBXProject "Kindle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB84D7672D5CE8CC00A5FFA5 /* Debug */,
+				DB84D7682D5CE8CC00A5FFA5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB84D7692D5CE8CC00A5FFA5 /* Build configuration list for PBXNativeTarget "Kindle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB84D76A2D5CE8CC00A5FFA5 /* Debug */,
+				DB84D76B2D5CE8CC00A5FFA5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DB48A15C2D5D36170022BACA /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.2;
+			};
+		};
+		DB48A15F2D5D364A0022BACA /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DB48A15D2D5D36170022BACA /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB48A15C2D5D36170022BACA /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		DB48A1602D5D364A0022BACA /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB48A15F2D5D364A0022BACA /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = DB84D7532D5CE8CA00A5FFA5 /* Project object */;
+}
