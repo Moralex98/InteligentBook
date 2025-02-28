@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB0165072D70471900891DA1 /* GenerativeAI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB0165062D70471900891DA1 /* GenerativeAI-Info.plist */; };
+		DB01650E2D70487F00891DA1 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = DB01650D2D70487F00891DA1 /* GoogleGenerativeAI */; };
+		DB2354032D71531000D297E7 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2354022D71531000D297E7 /* Colors.swift */; };
 		DB392ADF2D5DB39000E4E78E /* BookReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB392ADE2D5DB39000E4E78E /* BookReaderView.swift */; };
 		DB3FAED72D5E7981001B4231 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3FAED62D5E7981001B4231 /* WebView.swift */; };
-		DB48A15E2D5D36170022BACA /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = DB48A15D2D5D36170022BACA /* SwiftyJSON */; };
-		DB48A1612D5D364A0022BACA /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = DB48A1602D5D364A0022BACA /* SDWebImageSwiftUI */; };
+		DB54FFD22D66403700ABC325 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB54FFD12D66403700ABC325 /* ChatMessage.swift */; };
 		DB84D75F2D5CE8CA00A5FFA5 /* KindleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB84D75E2D5CE8CA00A5FFA5 /* KindleApp.swift */; };
 		DB84D7612D5CE8CA00A5FFA5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB84D7602D5CE8CA00A5FFA5 /* ContentView.swift */; };
 		DB84D7632D5CE8CC00A5FFA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB84D7622D5CE8CC00A5FFA5 /* Assets.xcassets */; };
@@ -19,12 +21,21 @@
 		DBBE53D52D5D716800B18A38 /* GoogleBooksAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBE53D42D5D716800B18A38 /* GoogleBooksAPIModel.swift */; };
 		DBBE53D72D5D71A200B18A38 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBE53D62D5D71A200B18A38 /* BookModel.swift */; };
 		DBBE53D92D5D71F800B18A38 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBE53D82D5D71F800B18A38 /* BookViewModel.swift */; };
+		DBE4E7F82D715C16007F3727 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DBE4E7F72D715C16007F3727 /* Alamofire */; };
+		DBE4E7FA2D715DAB007F3727 /* AIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE4E7F92D715DAB007F3727 /* AIService.swift */; };
+		DBE4E7FC2D71692C007F3727 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE4E7FB2D71692C007F3727 /* HomeView.swift */; };
+		DBE4E7FE2D7173C6007F3727 /* FloatingButtonTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE4E7FD2D7173C6007F3727 /* FloatingButtonTwoView.swift */; };
+		DBE4E8002D717443007F3727 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE4E7FF2D717443007F3727 /* DetailView.swift */; };
+		DBE4E8032D7180F8007F3727 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = DBE4E8022D7180F8007F3727 /* MarkdownUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB0165062D70471900891DA1 /* GenerativeAI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GenerativeAI-Info.plist"; sourceTree = "<group>"; };
+		DB2354022D71531000D297E7 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		DB392ADE2D5DB39000E4E78E /* BookReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookReaderView.swift; sourceTree = "<group>"; };
 		DB392AE02D5DBA7700E4E78E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DB3FAED62D5E7981001B4231 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		DB54FFD12D66403700ABC325 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		DB84D75B2D5CE8CA00A5FFA5 /* Kindle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kindle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB84D75E2D5CE8CA00A5FFA5 /* KindleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindleApp.swift; sourceTree = "<group>"; };
 		DB84D7602D5CE8CA00A5FFA5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,6 +45,10 @@
 		DBBE53D42D5D716800B18A38 /* GoogleBooksAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleBooksAPIModel.swift; sourceTree = "<group>"; };
 		DBBE53D62D5D71A200B18A38 /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
 		DBBE53D82D5D71F800B18A38 /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
+		DBE4E7F92D715DAB007F3727 /* AIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIService.swift; sourceTree = "<group>"; };
+		DBE4E7FB2D71692C007F3727 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		DBE4E7FD2D7173C6007F3727 /* FloatingButtonTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButtonTwoView.swift; sourceTree = "<group>"; };
+		DBE4E7FF2D717443007F3727 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,17 +56,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB48A1612D5D364A0022BACA /* SDWebImageSwiftUI in Frameworks */,
-				DB48A15E2D5D36170022BACA /* SwiftyJSON in Frameworks */,
+				DBE4E8032D7180F8007F3727 /* MarkdownUI in Frameworks */,
+				DBE4E7F82D715C16007F3727 /* Alamofire in Frameworks */,
+				DB01650E2D70487F00891DA1 /* GoogleGenerativeAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E8C7C2D22443F77F958E8C0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DB2354012D7152D300D297E7 /* Gemini */ = {
+			isa = PBXGroup;
+			children = (
+				DB2354022D71531000D297E7 /* Colors.swift */,
+				DBE4E7F92D715DAB007F3727 /* AIService.swift */,
+				DBE4E7FB2D71692C007F3727 /* HomeView.swift */,
+				DBE4E7FD2D7173C6007F3727 /* FloatingButtonTwoView.swift */,
+				DBE4E7FF2D717443007F3727 /* DetailView.swift */,
+			);
+			path = Gemini;
+			sourceTree = "<group>";
+		};
 		DB4014FB2D5D2F8600AAEFCF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DB54FFD12D66403700ABC325 /* ChatMessage.swift */,
 				DBBE53D42D5D716800B18A38 /* GoogleBooksAPIModel.swift */,
 				DBBE53D62D5D71A200B18A38 /* BookModel.swift */,
 			);
@@ -61,10 +97,9 @@
 		DB4014FC2D5D2F9300AAEFCF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DBBE53D22D5D6F8400B18A38 /* BookDetailView.swift */,
-				DBBE53D82D5D71F800B18A38 /* BookViewModel.swift */,
-				DB392ADE2D5DB39000E4E78E /* BookReaderView.swift */,
 				DB3FAED62D5E7981001B4231 /* WebView.swift */,
+				DB2354012D7152D300D297E7 /* Gemini */,
+				DB54FFCA2D663F9200ABC325 /* Book */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -85,11 +120,22 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		DB54FFCA2D663F9200ABC325 /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				DB392ADE2D5DB39000E4E78E /* BookReaderView.swift */,
+				DBBE53D82D5D71F800B18A38 /* BookViewModel.swift */,
+				DBBE53D22D5D6F8400B18A38 /* BookDetailView.swift */,
+			);
+			path = Book;
+			sourceTree = "<group>";
+		};
 		DB84D7522D5CE8CA00A5FFA5 = {
 			isa = PBXGroup;
 			children = (
 				DB84D75D2D5CE8CA00A5FFA5 /* Kindle */,
 				DB84D75C2D5CE8CA00A5FFA5 /* Products */,
+				9E8C7C2D22443F77F958E8C0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +157,7 @@
 				DB4014FB2D5D2F8600AAEFCF /* Models */,
 				DB84D7622D5CE8CC00A5FFA5 /* Assets.xcassets */,
 				DB84D7642D5CE8CC00A5FFA5 /* Preview Content */,
+				DB0165062D70471900891DA1 /* GenerativeAI-Info.plist */,
 			);
 			path = Kindle;
 			sourceTree = "<group>";
@@ -140,8 +187,9 @@
 			);
 			name = Kindle;
 			packageProductDependencies = (
-				DB48A15D2D5D36170022BACA /* SwiftyJSON */,
-				DB48A1602D5D364A0022BACA /* SDWebImageSwiftUI */,
+				DB01650D2D70487F00891DA1 /* GoogleGenerativeAI */,
+				DBE4E7F72D715C16007F3727 /* Alamofire */,
+				DBE4E8022D7180F8007F3727 /* MarkdownUI */,
 			);
 			productName = Kindle;
 			productReference = DB84D75B2D5CE8CA00A5FFA5 /* Kindle.app */;
@@ -174,6 +222,9 @@
 			packageReferences = (
 				DB48A15C2D5D36170022BACA /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				DB48A15F2D5D364A0022BACA /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				DB01650C2D70487F00891DA1 /* XCRemoteSwiftPackageReference "generative-ai-swift" */,
+				DBE4E7F62D715C16007F3727 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				DBE4E8012D7180F8007F3727 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
 			);
 			productRefGroup = DB84D75C2D5CE8CA00A5FFA5 /* Products */;
 			projectDirPath = "";
@@ -191,6 +242,7 @@
 			files = (
 				DB84D7662D5CE8CC00A5FFA5 /* Preview Assets.xcassets in Resources */,
 				DB84D7632D5CE8CC00A5FFA5 /* Assets.xcassets in Resources */,
+				DB0165072D70471900891DA1 /* GenerativeAI-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,12 +253,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBE4E8002D717443007F3727 /* DetailView.swift in Sources */,
+				DB2354032D71531000D297E7 /* Colors.swift in Sources */,
+				DBE4E7FE2D7173C6007F3727 /* FloatingButtonTwoView.swift in Sources */,
 				DB392ADF2D5DB39000E4E78E /* BookReaderView.swift in Sources */,
+				DBE4E7FC2D71692C007F3727 /* HomeView.swift in Sources */,
+				DBE4E7FA2D715DAB007F3727 /* AIService.swift in Sources */,
 				DBBE53D72D5D71A200B18A38 /* BookModel.swift in Sources */,
 				DB84D7612D5CE8CA00A5FFA5 /* ContentView.swift in Sources */,
 				DBBE53D52D5D716800B18A38 /* GoogleBooksAPIModel.swift in Sources */,
 				DBBE53D32D5D6F8400B18A38 /* BookDetailView.swift in Sources */,
 				DB84D75F2D5CE8CA00A5FFA5 /* KindleApp.swift in Sources */,
+				DB54FFD22D66403700ABC325 /* ChatMessage.swift in Sources */,
 				DBBE53D92D5D71F800B18A38 /* BookViewModel.swift in Sources */,
 				DB3FAED72D5E7981001B4231 /* WebView.swift in Sources */,
 			);
@@ -418,6 +476,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DB01650C2D70487F00891DA1 /* XCRemoteSwiftPackageReference "generative-ai-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google-gemini/generative-ai-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.6;
+			};
+		};
 		DB48A15C2D5D36170022BACA /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
@@ -434,18 +500,39 @@
 				minimumVersion = 3.1.3;
 			};
 		};
+		DBE4E7F62D715C16007F3727 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.4.0;
+			};
+		};
+		DBE4E8012D7180F8007F3727 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/swift-markdown-ui.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		DB48A15D2D5D36170022BACA /* SwiftyJSON */ = {
+		DB01650D2D70487F00891DA1 /* GoogleGenerativeAI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DB48A15C2D5D36170022BACA /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
-			productName = SwiftyJSON;
+			package = DB01650C2D70487F00891DA1 /* XCRemoteSwiftPackageReference "generative-ai-swift" */;
+			productName = GoogleGenerativeAI;
 		};
-		DB48A1602D5D364A0022BACA /* SDWebImageSwiftUI */ = {
+		DBE4E7F72D715C16007F3727 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DB48A15F2D5D364A0022BACA /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
-			productName = SDWebImageSwiftUI;
+			package = DBE4E7F62D715C16007F3727 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		DBE4E8022D7180F8007F3727 /* MarkdownUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBE4E8012D7180F8007F3727 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
+			productName = MarkdownUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

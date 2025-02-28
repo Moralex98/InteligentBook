@@ -13,41 +13,46 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            VStack {
-                SearchBar(text: $booksViewModel.searchQuery)
-                
-                List(booksViewModel.books) { book in
-                    NavigationLink(destination: BookDetailView(book: book)) {
-                        HStack {
-                            if let url = URL(string: book.imageURL) {
-                                AsyncImage(url: url) { image in
-                                    image.resizable().scaledToFit().frame(width: 60, height: 90)
-                                } placeholder: {
-                                    ProgressView()
+            ZStack{
+                VStack {
+                    //FloatingChatButton()
+                    SearchBar(text: $booksViewModel.searchQuery)
+                    
+                    List(booksViewModel.books) { book in
+                        NavigationLink(destination: BookDetailView(book: book)) {
+                            HStack {
+                                if let url = URL(string: book.imageURL) {
+                                    AsyncImage(url: url) { image in
+                                        image.resizable().scaledToFit().frame(width: 60, height: 90)
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
                                 }
-                            }
-
-                            VStack(alignment: .leading) {
-                                Text(book.title)
-                                    .font(.headline)
-                                Text(book.authors)
-                                    .font(.subheadline)
-                                    .foregroundColor(.gray)
+                                
+                                VStack(alignment: .leading) {
+                                    Text(book.title)
+                                        .font(.headline)
+                                    Text(book.authors)
+                                        .font(.subheadline)
+                                        .foregroundColor(.gray)
+                                }
                             }
                         }
                     }
                 }
+                .navigationTitle("Books")
+                .navigationBarItems(
+                    trailing: Button(action: {
+                        showDownloadedBooks.toggle()
+                    }) {
+                        Image(systemName: "book.fill")
+                            .foregroundColor(.blue)
+                    }
+                )
+               
             }
-            .navigationTitle("Books")
-            .navigationBarItems(
-                trailing: Button(action: {
-                    showDownloadedBooks.toggle()
-                }) {
-                    Image(systemName: "book.fill")
-                        .foregroundColor(.blue)
-                }
-            )
         }
+        
     }
 }
 
