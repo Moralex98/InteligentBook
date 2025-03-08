@@ -15,7 +15,6 @@ struct ContentView: View {
         NavigationView {
             ZStack{
                 VStack {
-                    //FloatingChatButton()
                     SearchBar(text: $booksViewModel.searchQuery)
                     
                     List(booksViewModel.books) { book in
@@ -40,7 +39,7 @@ struct ContentView: View {
                         }
                     }
                 }
-                .navigationTitle("Books")
+                .navigationTitle("Libros")
                 .navigationBarItems(
                     trailing: Button(action: {
                         showDownloadedBooks.toggle()
@@ -50,6 +49,27 @@ struct ContentView: View {
                     }
                 )
                
+            }
+            ScrollView {
+                Rectangle()
+                    .frame(width: 700, height: 300)
+                    .cornerRadius(15)
+                    .foregroundStyle(Color.gray.opacity(0.15))
+                
+                Rectangle()
+                    .frame(width: 700, height: 300)
+                    .cornerRadius(15)
+                    .foregroundStyle(Color.gray.opacity(0.15))
+                
+                Rectangle()
+                    .frame(width: 700, height: 300)
+                    .cornerRadius(15)
+                    .foregroundStyle(Color.gray.opacity(0.15))
+                
+                Rectangle()
+                    .frame(width: 700, height: 300)
+                    .cornerRadius(15)
+                    .foregroundStyle(Color.gray.opacity(0.15))
             }
         }
         
@@ -63,7 +83,7 @@ struct SearchBar: View {
         HStack {
             Image(systemName: "magnifyingglass")
                 .foregroundColor(.gray)
-            TextField("Search books...", text: $text)
+            TextField("Buscar libros", text: $text)
                 .padding(7)
                 .background(Color(.systemGray6))
                 .cornerRadius(8)

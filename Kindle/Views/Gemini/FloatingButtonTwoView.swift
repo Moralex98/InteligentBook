@@ -7,61 +7,55 @@
 
 import SwiftUI
 
-struct FloatingButtonTwoView:View {
+struct FloatingButtonTwoView: View {
     @Binding var prompText: String
+    var onSend: (String) -> Void // Agregamos un callback
+
     var body: some View {
-        HStack {
-            // textfield
+        ZStack (alignment: .center) {
             HStack {
-                TextField("Pregunta algo", text: $prompText)
-                    .padding(.leading)
-                //icons
-                HStack (spacing: 24) {
-                    Button {
-                        
-                    } label: {
-                        Image(systemName: "mic")
-                    }
-                    Button {
-                        
-                    } label: {
-                        Image(systemName: "camera")
-                    }
+                HStack{
+                    TextField("Pregunta algo", text: $prompText)
+                        .padding(.leading)
+                        .onSubmit {
+                            sendMessage()
+                        }
                 }
-                .foregroundStyle(.black)
-                .frame(width: 110, height: 48)
-                .background(Color.cyan)
-                .clipShape(Capsule())
-            }
-            .padding(.trailing, 4)
-            .frame(maxWidth: .infinity)
-            .frame(height: 55)
-            .overlay(
-                Capsule().stroke(.gray.opacity(0.2))
-            )
-            //icon voice
-            Button {
+                .padding(.trailing, 4)
+                .frame(width: 700)
+                .frame(height: 40)
+                .overlay(
+                    Capsule().stroke(.gray.opacity(0.2))
+                )
+                .background(Color.black.opacity(0.1))
+                .cornerRadius(12)
                 
-            } label: {
-                ZStack {
-                    Circle()
-                        .fill(Color.cyan)
-                        .frame(width: 50, height: 50)
-                    Image(systemName: "waveform")
-                        .foregroundStyle(.black)
+                Button {
+                    sendMessage()
+                } label: {
+                    ZStack {
+                        Circle()
+                            .fill(Color.cyan)
+                            .frame(width: 50, height: 50)
+                        Image(systemName: "paperplane.fill")
+                            .foregroundStyle(.black)
+                    }
                 }
             }
         }
-        .padding()
-        .frame(maxWidth: .infinity)
-        .frame(height: 90)
-        .background(Color.white)
-        .shadow(color: .gray.opacity(0.15), radius: 10)
+       // .ignoresSafeArea(.keyboard)
+    }
+
+    private func sendMessage() {
+        if !prompText.isEmpty {
+            onSend(prompText) // Envía el mensaje a HomeView
+            prompText = "" // Limpia el campo
+        }
     }
 }
 
-struct FloatingButtonTwoView_Previews: PreviewProvider{
+struct FloatingButtonTwoView_Previews: PreviewProvider {
     static var previews: some View {
-        FloatingButtonTwoView(prompText: .constant("Hola mundo"))
+        FloatingButtonTwoView(prompText: .constant("Hola mundo"), onSend: { _ in })
     }
 }
