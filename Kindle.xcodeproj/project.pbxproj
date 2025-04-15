@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		DB0165072D70471900891DA1 /* GenerativeAI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB0165062D70471900891DA1 /* GenerativeAI-Info.plist */; };
 		DB01650E2D70487F00891DA1 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = DB01650D2D70487F00891DA1 /* GoogleGenerativeAI */; };
+		DB0DDA782DA442990069D296 /* GutenbergBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0DDA772DA442990069D296 /* GutenbergBook.swift */; };
+		DB0DDA7A2DA4431A0069D296 /* GutenbergViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0DDA792DA4431A0069D296 /* GutenbergViewModel.swift */; };
+		DB0DDA7C2DA444FA0069D296 /* GutenbergSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0DDA7B2DA444FA0069D296 /* GutenbergSearchView.swift */; };
+		DB0DDA7E2DA445180069D296 /* ReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0DDA7D2DA445180069D296 /* ReaderView.swift */; };
 		DB2354032D71531000D297E7 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2354022D71531000D297E7 /* Colors.swift */; };
 		DB392ADF2D5DB39000E4E78E /* BookReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB392ADE2D5DB39000E4E78E /* BookReaderView.swift */; };
 		DB3FAED72D5E7981001B4231 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3FAED62D5E7981001B4231 /* WebView.swift */; };
@@ -31,6 +35,10 @@
 
 /* Begin PBXFileReference section */
 		DB0165062D70471900891DA1 /* GenerativeAI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GenerativeAI-Info.plist"; sourceTree = "<group>"; };
+		DB0DDA772DA442990069D296 /* GutenbergBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GutenbergBook.swift; sourceTree = "<group>"; };
+		DB0DDA792DA4431A0069D296 /* GutenbergViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GutenbergViewModel.swift; sourceTree = "<group>"; };
+		DB0DDA7B2DA444FA0069D296 /* GutenbergSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GutenbergSearchView.swift; sourceTree = "<group>"; };
+		DB0DDA7D2DA445180069D296 /* ReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderView.swift; sourceTree = "<group>"; };
 		DB2354022D71531000D297E7 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		DB392ADE2D5DB39000E4E78E /* BookReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookReaderView.swift; sourceTree = "<group>"; };
 		DB392AE02D5DBA7700E4E78E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -126,6 +134,10 @@
 				DB392ADE2D5DB39000E4E78E /* BookReaderView.swift */,
 				DBBE53D82D5D71F800B18A38 /* BookViewModel.swift */,
 				DBBE53D22D5D6F8400B18A38 /* BookDetailView.swift */,
+				DB0DDA772DA442990069D296 /* GutenbergBook.swift */,
+				DB0DDA792DA4431A0069D296 /* GutenbergViewModel.swift */,
+				DB0DDA7B2DA444FA0069D296 /* GutenbergSearchView.swift */,
+				DB0DDA7D2DA445180069D296 /* ReaderView.swift */,
 			);
 			path = Book;
 			sourceTree = "<group>";
@@ -254,7 +266,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBE4E8002D717443007F3727 /* ChatView.swift in Sources */,
+				DB0DDA7E2DA445180069D296 /* ReaderView.swift in Sources */,
 				DB2354032D71531000D297E7 /* Colors.swift in Sources */,
+				DB0DDA7A2DA4431A0069D296 /* GutenbergViewModel.swift in Sources */,
+				DB0DDA7C2DA444FA0069D296 /* GutenbergSearchView.swift in Sources */,
 				DBE4E7FE2D7173C6007F3727 /* FloatingButtonTwoView.swift in Sources */,
 				DB392ADF2D5DB39000E4E78E /* BookReaderView.swift in Sources */,
 				DBE4E7FA2D715DAB007F3727 /* AIService.swift in Sources */,
@@ -262,6 +277,7 @@
 				DB84D7612D5CE8CA00A5FFA5 /* ContentView.swift in Sources */,
 				DBBE53D52D5D716800B18A38 /* GoogleBooksAPIModel.swift in Sources */,
 				DBBE53D32D5D6F8400B18A38 /* BookDetailView.swift in Sources */,
+				DB0DDA782DA442990069D296 /* GutenbergBook.swift in Sources */,
 				DB84D75F2D5CE8CA00A5FFA5 /* KindleApp.swift in Sources */,
 				DBA111E82D72E0A400133970 /* FloatingChatButtonView.swift in Sources */,
 				DB54FFD22D66403700ABC325 /* ChatMessage.swift in Sources */,

@@ -10,10 +10,8 @@
 //
 //  Created by Freddy Morales on 12/02/25.
 //
-
 import SwiftUI
-import MarkdownUI //for decoding content
-
+import MarkdownUI
 
 struct ChatView: View {
     @Binding var isChatOpen: Bool
@@ -23,78 +21,100 @@ struct ChatView: View {
     @State private var displayedText: String = ""
     @State private var typingIndex: Int = 0
     @State private var hasSentMessage: Bool = false
-    
+
     var body: some View {
         NavigationStack {
-            ZStack(alignment: .bottom) {
-                ScrollView(showsIndicators: false) {
-                    VStack(spacing: 14) {
-                        if !hasSentMessage {
-                            Text("Welcome")
-                                .font(.title)
-                                .fontWeight(.semibold)
-                                .foregroundStyle(
-                                    LinearGradient(gradient: Gradient(colors: [Color.primaryColor1, Color.primaryColor2, Color.primaryColor3]), startPoint: .leading, endPoint: .trailing)
-                                )
-                                .frame(maxHeight: .infinity)
-                                .padding()
-                        }
-                        
-                        if !prompText.isEmpty {
-                            Text(prompText)
-                                .font(.headline)
-                                .fontWeight(.regular)
-                                .padding(.vertical, 8)
-                                .padding(.horizontal, 20)
-                                .background(Color.cyan)
-                                .clipShape(Capsule())
-                                .frame(maxWidth: .infinity, alignment: .trailing)
-                        }
-                        
-                        if isLoading {
-                            LoadingView()
-                        } else {
-                            Markdown(displayedText)
-                                .markdownTextStyle(\.code) {
-                                    FontFamilyVariant(.monospaced)
-                                    FontSize(.em(1))
-                                    ForegroundColor(.purple)
-                                    BackgroundColor(.purple.opacity(0.25))
+            GeometryReader { geo in
+                ZStack(alignment: .bottom) {
+                    Color.white.ignoresSafeArea()
+
+                    ScrollViewReader { proxy in
+                        ScrollView(showsIndicators: false) {
+                            VStack(spacing: 14) {
+                                if !hasSentMessage {
+                                    Text("Welcome")
+                                        .font(.title)
+                                        .fontWeight(.semibold)
+                                        .foregroundStyle(
+                                            LinearGradient(gradient: Gradient(colors: [Color.primaryColor1, Color.primaryColor2, Color.primaryColor3]), startPoint: .leading, endPoint: .trailing)
+                                        )
+                                        .frame(maxWidth: .infinity)
+                                        .padding()
                                 }
-                                .font(.subheadline)
-                                .foregroundStyle(.black)
-                                .multilineTextAlignment(.leading)
+
+                                if !prompText.isEmpty {
+                                    Text(prompText)
+                                        .font(.headline)
+                                        .fontWeight(.regular)
+                                        .padding(.vertical, 8)
+                                        .padding(.horizontal, 20)
+                                        .background(Color.cyan)
+                                        .clipShape(Capsule())
+                                        .frame(maxWidth: .infinity, alignment: .trailing)
+                                }
+
+                                if isLoading {
+                                    LoadingView()
+                                } else {
+                                    Markdown(displayedText)
+                                        .markdownTextStyle(\.code) {
+                                            FontFamilyVariant(.monospaced)
+                                            FontSize(.em(1))
+                                            ForegroundColor(.purple)
+                                            BackgroundColor(.purple.opacity(0.25))
+                                        }
+                                        .font(.subheadline)
+                                        .foregroundStyle(.black)
+                                        .multilineTextAlignment(.leading)
+                                }
+
+                                Color.clear.frame(height: 1).id("bottom")
+                            }
+                            .padding(.horizontal)
+                            .padding(.bottom, 100) // deja espacio para barra fija
+                        }
+                        .onChange(of: displayedText) { _ in
+                            withAnimation {
+                                proxy.scrollTo("bottom", anchor: .bottom)
+                            }
                         }
                     }
+
+                    // ✅ Esto está fuera del Scroll y no será empujado por el teclado
                 }
-                .padding(.horizontal)
-                .padding(.bottom, 140)
-                
-                HStack {
-                    TextField("Pregunta algo", text: $prompText)
-                        .padding()
-                        .background(Color.gray.opacity(0.2))
-                        .cornerRadius(10)
-                        .textFieldStyle(PlainTextFieldStyle())
-                        .onSubmit {
+                // ✅ BARRA FLOTANTE FIJA (fuera del layout)
+                .overlay(
+                    HStack {
+                        TextField("Pregunta algo", text: $prompText)
+                            .padding()
+                            .background(Color.gray.opacity(0.2))
+                            .cornerRadius(10)
+                            .textFieldStyle(PlainTextFieldStyle())
+                            .onSubmit {
+                                sendMessage()
+                            }
+
+                        Button {
                             sendMessage()
-                        }
-                    
-                    Button {
-                        sendMessage()
-                    } label: {
-                        ZStack {
-                            Circle()
-                                .fill(Color.cyan)
-                                .frame(width: 50, height: 50)
-                            Image(systemName: "paperplane.fill")
-                                .foregroundStyle(.black)
+                        } label: {
+                            ZStack {
+                                Circle()
+                                    .fill(Color.cyan)
+                                    .frame(width: 50, height: 50)
+                                Image(systemName: "paperplane.fill")
+                                    .foregroundStyle(.black)
+                            }
                         }
                     }
-                }
-                .padding()
+                    .padding()
+                    .frame(width: geo.size.width)
+                    .background(Color.white.shadow(radius: 2))
+                    .position(x: geo.size.width / 2, y: geo.size.height - 40),
+                    alignment: .bottom
+                )
             }
             .ignoresSafeArea(.keyboard)
+
             .navigationTitle("Conect")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -111,14 +131,14 @@ struct ChatView: View {
             }
         }
     }
-    
+
     private func sendMessage() {
         if !prompText.isEmpty {
             hasSentMessage = true
             let userMessage = prompText
-            prompText = "" // Borra el campo de texto
+            prompText = ""
             isLoading = true
-            
+
             AIService.fetchAIContent(prompt: userMessage) { result in
                 DispatchQueue.main.async {
                     isLoading = false
@@ -133,11 +153,11 @@ struct ChatView: View {
             }
         }
     }
-    
+
     private func typingAnimation() {
         typingIndex = 0
         displayedText = ""
-        
+
         Timer.scheduledTimer(withTimeInterval: 0.03, repeats: true) { timer in
             if typingIndex < extractedText.count {
                 displayedText.append(extractedText[extractedText.index(extractedText.startIndex, offsetBy: typingIndex)])
@@ -148,6 +168,7 @@ struct ChatView: View {
         }
     }
 }
+
 
 struct ChatView_Previews: PreviewProvider {
     @State static var isChatOpen = true

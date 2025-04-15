@@ -7,9 +7,6 @@
 import SwiftUI
 import Combine
 
-import SwiftUI
-import Combine
-
 class BookViewModel: ObservableObject {
     @Published var books: [Book] = []
     @Published var searchQuery = "" {
@@ -19,7 +16,17 @@ class BookViewModel: ObservableObject {
     }
 
     func fetchBooks() {
-        guard let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=\(searchQuery)") else { return }
+        let trimmedQuery = searchQuery.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        // Si está vacío, borra resultados
+        guard !trimmedQuery.isEmpty else {
+            DispatchQueue.main.async {
+                self.books = []
+            }
+            return
+        }
+
+        guard let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=\(trimmedQuery)") else { return }
 
         URLSession.shared.dataTask(with: url) { data, _, error in
             if let data = data {
@@ -43,18 +50,6 @@ class BookViewModel: ObservableObject {
             }
         }.resume()
     }
-}
-
-// Modelos para decodificar la API de Project Gutenberg
-struct GutenbergResponse: Codable {
-    let results: [GutenbergBook]
-}
-
-struct GutenbergBook: Codable {
-    let id: Int
-    let title: String
-    let authors: [Author]
-    let formats: [String: String] // Contiene los links de descarga
 }
 
 struct Author: Codable {

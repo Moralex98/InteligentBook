@@ -23,5 +23,15 @@
             </dict>
         </dict>
     </dict>
+
+    <key>NSSpeechRecognitionUsageDescription</key>
+    <string>Se necesita acceso para convertir tu voz a texto.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Se necesita acceso al micrófono para grabar tu voz.</string>
+    <key>NSSpeechRecognitionUsageDescription</key>
+    <string>Se necesita para convertir voz en texto</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Se necesita para grabar tu voz</string>
+
 </dict>
 </plist>

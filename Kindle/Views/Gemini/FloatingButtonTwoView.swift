@@ -9,50 +9,38 @@ import SwiftUI
 
 struct FloatingButtonTwoView: View {
     @Binding var prompText: String
-    var onSend: (String) -> Void // Agregamos un callback
+    var onSend: (String) -> Void
 
     var body: some View {
-        ZStack (alignment: .center) {
-            HStack {
-                HStack{
-                    TextField("Pregunta algo", text: $prompText)
-                        .padding(.leading)
-                        .onSubmit {
-                            sendMessage()
-                        }
-                }
-                .padding(.trailing, 4)
-                .frame(width: 700)
-                .frame(height: 40)
-                .overlay(
-                    Capsule().stroke(.gray.opacity(0.2))
-                )
-                .background(Color.black.opacity(0.1))
+        HStack(spacing: 8) {
+            TextField("Pregunta algo", text: $prompText)
+                .padding(12)
+                .background(Color.gray.opacity(0.15))
                 .cornerRadius(12)
-                
-                Button {
+                .onSubmit {
                     sendMessage()
-                } label: {
-                    ZStack {
-                        Circle()
-                            .fill(Color.cyan)
-                            .frame(width: 50, height: 50)
-                        Image(systemName: "paperplane.fill")
-                            .foregroundStyle(.black)
-                    }
+                }
+
+            Button(action: sendMessage) {
+                ZStack {
+                    Circle()
+                        .fill(Color.cyan)
+                        .frame(width: 44, height: 44)
+                    Image(systemName: "paperplane.fill")
+                        .foregroundColor(.black)
                 }
             }
         }
-       // .ignoresSafeArea(.keyboard)
+        .padding(.horizontal)
     }
 
     private func sendMessage() {
-        if !prompText.isEmpty {
-            onSend(prompText) // Envía el mensaje a HomeView
-            prompText = "" // Limpia el campo
-        }
+        guard !prompText.isEmpty else { return }
+        onSend(prompText)
+        prompText = ""
     }
 }
+
 
 struct FloatingButtonTwoView_Previews: PreviewProvider {
     static var previews: some View {
