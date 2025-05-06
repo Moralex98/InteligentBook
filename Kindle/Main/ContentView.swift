@@ -149,19 +149,19 @@ struct ContentView: View {
         let previews: [(title: String, image: String, url: String, background: Color)] = [
             (
                 "National Geographic",
-                "https://www.ngenespanol.com/wp-content/uploads/2023/11/national-geographic-logo.jpg",
+                "nationalimage",
                 "https://www.ngenespanol.com",
                 Color(red: 245/255, green: 236/255, blue: 210/255)
             ),
             (
                 "Muy Interesante",
-                "https://www.muyinteresante.es/assets/images/logo-mi.png",
+                "muyinteresimage",
                 "https://www.muyinteresante.com/",
                 Color(red: 180/255, green: 200/255, blue: 170/255)
             ),
             (
                 "CogniFit",
-                "https://static.cognifit.com/images/logos/cognifit_logo_header_es.png",
+                "cognifitimage",
                 "https://www.cognifit.com/es/juegos-mentales",
                 Color(red: 255/255, green: 200/255, blue: 160/255)
             )
@@ -175,10 +175,11 @@ struct ContentView: View {
                 showReader = true
             } label: {
                 VStack(spacing: 14) {
-                    ProgressView()
-                        .progressViewStyle(CircularProgressViewStyle())
-                        .tint(.gray)
+                    Image(item.image)
+                        .resizable()
+                        .scaledToFit()
                         .frame(height: 220)
+                        .padding(.top, 10)
 
                     Text(item.title)
                         .font(.system(size: 20, weight: .semibold, design: .serif))
@@ -202,6 +203,7 @@ struct ContentView: View {
             }
         }
     }
+
 
 
 }
