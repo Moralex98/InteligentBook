@@ -5,6 +5,7 @@
 //  Created by Freddy Morales on 12/02/25.
 //
 
+
 import SwiftUI
 
 struct ContentView: View {
@@ -19,6 +20,13 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
+            Color(.systemGray6) // fondo más cálido y menos blanco
+                  .ignoresSafeArea()
+
+              Rectangle()
+                  .fill(.thinMaterial)
+                  .ignoresSafeArea()
+
             if showReader {
                 if isGoogleReader {
                     MyWebView(url: selectedBookURL) {
@@ -30,23 +38,34 @@ struct ContentView: View {
                         bookURL: selectedBookURL,
                         title: selectedBookTitle,
                         onBack: {
-                        showReader = false
+                            showReader = false
                         }
                     )
                 }
             } else {
                 VStack(spacing: 0) {
                     SearchBar(text: usingGutenberg ? $gutenbergVM.searchQuery : $booksViewModel.searchQuery)
-                        .padding()
-                        .background(Color.white)
+                        .padding(.top, 30)
 
                     HStack {
                         Spacer()
-                        Button(usingGutenberg ? "Usar Google Books" : "Usar Gutenberg") {
+                        Button(action: {
                             usingGutenberg.toggle()
+                        }) {
+                            Text(usingGutenberg ? "Usar Google Books" : "Usar Gutenberg")
+                                .fontWeight(.semibold)
+                                .padding(.vertical, 12)
+                                .padding(.horizontal, 20)
+                                .background(Color.orange.opacity(0.2))
+                                .foregroundColor(.brown)
+                                .cornerRadius(12)
                         }
+                        .padding(.top, 13) // separación respecto al buscador
                         .padding(.horizontal)
                     }
+                    .padding(.bottom, 14) // separación respecto a las cards
+
+
 
                     ScrollView {
                         VStack(spacing: 20) {
@@ -60,22 +79,10 @@ struct ContentView: View {
                                 } else {
                                     ForEach(gutenbergVM.books) { book in
                                         if let url = book.formats.first(where: { $0.key.contains("text/plain") })?.value {
-                                            Button {
+                                            BookCard(title: book.title, author: book.authors.first?.name ?? "Autor desconocido") {
                                                 selectedBookURL = url
                                                 selectedBookTitle = book.title
                                                 showReader = true
-                                            } label: {
-                                                VStack(alignment: .leading, spacing: 4) {
-                                                    Text(book.title).font(.headline)
-                                                    Text(book.authors.first?.name ?? "Autor desconocido")
-                                                        .font(.subheadline)
-                                                        .foregroundColor(.gray)
-                                                }
-                                                .padding()
-                                                .background(Color.white)
-                                                .cornerRadius(10)
-                                                .shadow(radius: 2)
-                                                .padding(.horizontal)
                                             }
                                         }
                                     }
@@ -101,13 +108,16 @@ struct ContentView: View {
                                                         image.resizable()
                                                             .scaledToFit()
                                                             .frame(width: 60, height: 90)
+                                                            .cornerRadius(8)
                                                     } placeholder: {
                                                         ProgressView()
+                                                            .frame(width: 60, height: 90)
                                                     }
                                                 }
 
                                                 VStack(alignment: .leading, spacing: 4) {
-                                                    Text(book.title).font(.headline)
+                                                    Text(book.title)
+                                                        .font(.headline)
                                                     Text(book.authors)
                                                         .font(.subheadline)
                                                         .foregroundColor(.gray)
@@ -116,8 +126,8 @@ struct ContentView: View {
                                             }
                                             .padding()
                                             .background(Color.white)
-                                            .cornerRadius(10)
-                                            .shadow(radius: 2)
+                                            .cornerRadius(15)
+                                            .shadow(color: .gray.opacity(0.2), radius: 5)
                                             .padding(.horizontal)
                                         }
                                     }
@@ -128,17 +138,33 @@ struct ContentView: View {
                     }
                     .scrollIndicators(.hidden)
                 }
-                .background(Color(.systemGroupedBackground))
             }
         }
     }
 
+   
+    
     @ViewBuilder
     func showRectangles() -> some View {
-        let previews: [(title: String, image: String, url: String)] = [
-            ("National Geographic", "https://www.ngenespanol.com/wp-content/uploads/2023/11/national-geographic-logo.jpg", "https://www.ngenespanol.com"),
-            ("Muy Interesante", "https://www.muyinteresante.es/assets/images/logo-mi.png", "https://www.muyinteresante.com/"),
-            ("CogniFit", "https://static.cognifit.com/images/logos/cognifit_logo_header_es.png", "https://www.cognifit.com/es/juegos-mentales")
+        let previews: [(title: String, image: String, url: String, background: Color)] = [
+            (
+                "National Geographic",
+                "https://www.ngenespanol.com/wp-content/uploads/2023/11/national-geographic-logo.jpg",
+                "https://www.ngenespanol.com",
+                Color(red: 245/255, green: 236/255, blue: 210/255)
+            ),
+            (
+                "Muy Interesante",
+                "https://www.muyinteresante.es/assets/images/logo-mi.png",
+                "https://www.muyinteresante.com/",
+                Color(red: 180/255, green: 200/255, blue: 170/255)
+            ),
+            (
+                "CogniFit",
+                "https://static.cognifit.com/images/logos/cognifit_logo_header_es.png",
+                "https://www.cognifit.com/es/juegos-mentales",
+                Color(red: 255/255, green: 200/255, blue: 160/255)
+            )
         ]
 
         ForEach(previews, id: \.title) { item in
@@ -148,34 +174,64 @@ struct ContentView: View {
                 isGoogleReader = true
                 showReader = true
             } label: {
-                VStack {
-                    AsyncImage(url: URL(string: item.image)) { image in
-                        image.resizable()
-                             .scaledToFill()
-                             .frame(height: 180)
-                             .clipped()
-                             .cornerRadius(15)
-                    } placeholder: {
-                        ProgressView()
-                            .frame(height: 180)
-                    }
+                VStack(spacing: 14) {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle())
+                        .tint(.gray)
+                        .frame(height: 220)
 
                     Text(item.title)
-                        .font(.headline)
-                        .padding(.top, 8)
-                        .foregroundColor(.primary)
+                        .font(.system(size: 20, weight: .semibold, design: .serif))
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.black)
                 }
-                .frame(maxWidth: .infinity)
+                .frame(maxWidth: .infinity, minHeight: 180)
                 .padding()
-                .background(Color.white)
-                .cornerRadius(20)
-                .shadow(radius: 4)
-                .padding(.horizontal)
+                .background(
+                    RoundedRectangle(cornerRadius: 25, style: .continuous)
+                        .fill(item.background)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 25)
+                                .stroke(Color.black.opacity(0.08), lineWidth: 1)
+                        )
+                )
+                .shadow(color: .black.opacity(0.1), radius: 6, x: 0, y: 4)
+                .scaleEffect(1.0)
+                .animation(.spring(response: 0.4, dampingFraction: 0.7), value: UUID())
+                .padding(.horizontal, 20)
             }
         }
     }
 
+
 }
+
+
+
+// Card reutilizable para libros de Gutenberg
+struct BookCard: View {
+    let title: String
+    let author: String
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            VStack(alignment: .leading, spacing: 6) {
+                Text(title).font(.headline)
+                Text(author).font(.subheadline).foregroundColor(.gray)
+            }
+            .padding()
+            .background(.ultraThinMaterial)
+            .cornerRadius(15)
+            .shadow(color: .gray.opacity(0.2), radius: 5)
+            .padding(.horizontal)
+        }
+    }
+}
+
+
+
+
 
 struct SearchBar: View {
     @Binding var text: String
@@ -192,11 +248,13 @@ struct SearchBar: View {
         }
         .padding(.horizontal)
         .frame(height: 50)
+        .frame(maxWidth: 750) // <- Ajuste clave
         .background(Color.white)
-        .cornerRadius(10)
+        .cornerRadius(40)
         .shadow(radius: 5)
     }
 }
+
 
 
 struct ContentView_Previews: PreviewProvider {

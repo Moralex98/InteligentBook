@@ -4,6 +4,7 @@
 //
 //  Created by Freddy Morales on 01/03/25.
 //
+
 import SwiftUI
 
 struct FloatingChatButton: View {
@@ -18,8 +19,11 @@ struct FloatingChatButton: View {
         GeometryReader { geo in
             ZStack {
                 if isChatOpen {
-                    let adjustedX = position.x < geo.size.width / 2 ? 300 : geo.size.width - 300
-                    let halfHeight: CGFloat = 300 // altura del chat / 2
+                    let adjustedX = position.x < geo.size.width / 2
+                        ? geo.size.width * 0.8    // ahora más hacia el centro
+                        : geo.size.width * 0.6
+
+                    let halfHeight: CGFloat = 300
                     let minY = halfHeight + 20
                     let maxY = geo.size.height - halfHeight - 20
                     let adjustedY = min(max(position.y, minY), maxY)
@@ -33,9 +37,10 @@ struct FloatingChatButton: View {
                         .animation(.easeOut, value: position)
                 }
 
+
                 // La pestañita flotante
                 RoundedRectangle(cornerRadius: 10)
-                    .fill(Color.blue.opacity(0.85))
+                    .fill(Color.gray.opacity(0.90))
                     .frame(width: tabWidth, height: tabHeight)
                     .overlay(
                         Image(systemName: "chevron.left")
@@ -77,6 +82,7 @@ struct FloatingChatButton: View {
             }
         }
         .edgesIgnoringSafeArea(.all)
+        .ignoresSafeArea(.keyboard)
     }
 }
 

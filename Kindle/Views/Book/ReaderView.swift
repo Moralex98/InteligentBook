@@ -21,65 +21,102 @@ struct ReaderView: View {
     let pageLength = 1000
 
     var body: some View {
-        VStack {
-            // Botón volver
-            HStack {
-                Button(action: onBack) {
-                    Label("Volver", systemImage: "chevron.left")
+        VStack(spacing: 0) {
+            // 🔸 Parte superior con fondo madera
+            VStack(spacing: 12) {
+                // Botón volver
+                HStack {
+                    Button(action: onBack) {
+                        Label {
+                            Text("Volver")
+                                .foregroundColor(.white)
+                        } icon: {
+                            Image(systemName: "chevron.left")
+                                .foregroundColor(.white)
+                        }
                         .font(.body)
                         .padding(8)
                         .background(Color.gray.opacity(0.2))
                         .cornerRadius(8)
+                    }
+                    .padding()
+                    Spacer()
+                }
+                .padding(.top, 13) // ⬅️ AQUÍ le agregamos separación hacia abajo
+
+
+                // Buscador
+                HStack {
+                    TextField("Buscar palabra", text: $searchQuery, onCommit: searchWord)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.horizontal)
+
+                    Button("Buscar", action: searchWord)
+                        .foregroundColor(.gray)
+                        .padding(.trailing)
+                }
+
+                Button(action: translateCurrentPage) {
+                    HStack(spacing: 10) { // Espaciado entre el spinner y el texto
+                        Text("Traducir página")
+                            .fontWeight(.semibold)
+
+                        if isTranslating {
+                            ProgressView()
+                                .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                                .scaleEffect(1.2) // agranda el spinner
+                        }
+                    }
+                    .frame(height: 40)
+                    .padding(.horizontal, 20)
+                    .background(Color.white.opacity(0.1))
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                }
+                .disabled(isTranslating)
+                .animation(.easeInOut, value: isTranslating)
+
+            }
+            .background(
+                Image("madera")
+                    .resizable()
+                    .scaledToFill()
+            )
+
+            // 🔸 Parte de lectura con fondo blanco
+            VStack(spacing: 0) {
+                ScrollView {
+                    Text(pages.isEmpty ? "Cargando..." : pages[currentPage])
+                        .padding()
+                        .foregroundColor(.black) // texto gutenberg
+                }
+
+                Divider()
+
+                HStack {
+                    Button("⟨") { if currentPage > 0 { currentPage -= 1 } }
+                    Spacer()
+                    Text("Página \(currentPage + 1)/\(pages.count)")
+                    Spacer()
+                    Button("⟩") { if currentPage < pages.count - 1 { currentPage += 1 } }
+                   
                 }
                 .padding()
-                Spacer()
+//Image("madera")
+                .background(.ultraThinMaterial)
+                .foregroundColor(.primary)
+           
             }
-
-            // Buscador
-            HStack {
-                TextField("Buscar palabra", text: $searchQuery, onCommit: searchWord)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.horizontal)
-
-                Button("Buscar", action: searchWord)
-                    .padding(.trailing)
+         
+            .background(Color.white)
+            .safeAreaInset(edge: .bottom) {
+                Color.clear.frame(height: 20) // ⬅️ Agrega espacio visual seguro abajo
             }
-
-            // Traducir
-            Button(action: translateCurrentPage) {
-                HStack {
-                    if isTranslating {
-                        ProgressView()
-                    }
-                    Text("Traducir página")
-                }
-                .padding(.vertical, 6)
-                .padding(.horizontal, 14)
-                .background(Color.blue.opacity(0.1))
-                .cornerRadius(8)
-            }
-            .disabled(isTranslating)
-
-            // Texto
-            ScrollView {
-                Text(pages.isEmpty ? "Cargando..." : pages[currentPage])
-                    .padding()
-            }
-
-            Divider()
-
-            // Paginación
-            HStack {
-                Button("⟨") { if currentPage > 0 { currentPage -= 1 } }
-                Spacer()
-                Text("Página \(currentPage + 1)/\(pages.count)")
-                Spacer()
-                Button("⟩") { if currentPage < pages.count - 1 { currentPage += 1 } }
-            }
-            .padding()
         }
+        .ignoresSafeArea(.keyboard) // opcional: evita que el teclado empuje la vista
         .onAppear(perform: loadBook)
     }
+
 
     func loadBook() {
         guard let url = URL(string: bookURL) else { return }
@@ -166,6 +203,6 @@ struct TranslateResponse: Codable {
     ReaderView(
         bookURL: "https://www.gutenberg.org/files/1342/1342-0.txt",
         title: "Orgullo y prejuicio",
-        onBack: {} 
+        onBack: {}
     )
 }

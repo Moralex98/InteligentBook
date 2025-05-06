@@ -41,9 +41,9 @@ struct FloatingButtonTwoView: View {
     }
 }
 
-
 struct FloatingButtonTwoView_Previews: PreviewProvider {
     static var previews: some View {
         FloatingButtonTwoView(prompText: .constant("Hola mundo"), onSend: { _ in })
+            .ignoresSafeArea(.keyboard) // agregado aquí para vista previa
     }
 }

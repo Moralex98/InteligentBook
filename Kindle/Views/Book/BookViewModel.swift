@@ -4,6 +4,7 @@
 //
 //  Created by Freddy Morales on 12/02/25.
 //
+
 import SwiftUI
 import Combine
 
@@ -18,7 +19,6 @@ class BookViewModel: ObservableObject {
     func fetchBooks() {
         let trimmedQuery = searchQuery.trimmingCharacters(in: .whitespacesAndNewlines)
 
-        // Si está vacío, borra resultados
         guard !trimmedQuery.isEmpty else {
             DispatchQueue.main.async {
                 self.books = []
@@ -58,7 +58,7 @@ struct Author: Codable {
 
 struct BookViewModel_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView() // ✅ Se previsualiza la vista que usa el ViewModel
+        ContentView()
+            .ignoresSafeArea(.keyboard)//  Aquí se aplicó de forma correcta
     }
 }
-
