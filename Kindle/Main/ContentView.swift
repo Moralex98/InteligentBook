@@ -160,9 +160,9 @@ struct ContentView: View {
                 Color(red: 180/255, green: 200/255, blue: 170/255)
             ),
             (
-                "CogniFit",
+                "Poki",
                 "cognifitimage",
-                "https://www.cognifit.com/es/juegos-mentales",
+                "https://poki.com/es/mentales",
                 Color(red: 255/255, green: 200/255, blue: 160/255)
             )
         ]
